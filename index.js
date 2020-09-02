@@ -23,3 +23,7 @@ sequelize.sync({ force: false })
     }).catch(error => {
         console.log('Error: ', error);
     });
+
+app.get('/', (req, res) => {
+    res.send({mensaje: "Hola"})
+})
