@@ -3,5 +3,8 @@
      "name": "login-nodejs",
      "routes": [
      { "src": "/api/(.*)", "dest": "index.js" }
-     ]
+     ],
+     "env": {
+         "MYSQL_URI": "@mysql_uri"
+     }
  }

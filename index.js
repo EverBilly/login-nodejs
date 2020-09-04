@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./database/db');
 
+//Models
+const roles = require('./api/routes/roles');
+
 const app = express();
 
 //Settings
@@ -16,14 +19,7 @@ app.listen(app.get('port'), () => {
     console.log('Connected in: ', app.get('port'));
 });
 
-//Conexion a la BD
-sequelize.sync({ force: false })
-    .then(() => {
-        console.log('Connected to DataBase');
-    }).catch(error => {
-        console.log('Error: ', error);
-    });
+// Routes
+app.use('/api/roles', roles);
 
-app.get('/', (req, res) => {
-    res.send({mensaje: "Hola"})
-})
+module.exports = app;

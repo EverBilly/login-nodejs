@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize');
 const dotenv = require('dotenv');
 
+//Models
+const RolesModel = require('../api/models/Roles');
+
 dotenv.config({ path: '.env' });
 
 const sequelize = new Sequelize(
@@ -11,9 +14,14 @@ const sequelize = new Sequelize(
     dialect: 'mysql'
     });
 
-// sequelize.sync({ force: false })
-//     .then(() => {
-//         console.log('Conexion Extablecida');
-//     });
+sequelize.sync({ force: false })
+    .then(() => {
+        // console.log('Conexion Extablecida');
+    });
 
-module.exports = sequelize;
+// Instancia
+const Roles = RolesModel(sequelize, Sequelize)
+
+module.exports = {
+    Roles
+};
