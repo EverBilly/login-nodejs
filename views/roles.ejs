@@ -1,0 +1,13 @@
+<%- include('partials/header') -%>
+    <div class="bg-warning">
+    <h1>Roles</h1>
+    <% if(roles){ %>
+        <% let index = 0 %>
+    <% roles.forEach(function(roles, index){ %>
+        <li><%= ++index %></li>
+        <li><%= roles.name %></li>
+        <li><%= roles.desc %></li>
+    <%})%>
+    <% } %>
+</div>
+    <%- include('partials/footer') -%>

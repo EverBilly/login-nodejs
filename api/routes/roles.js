@@ -4,7 +4,7 @@ const { Roles } = require('../../database/db');
 
      
 // Listar Todos los Roles
-router.get('/', async(req, res) => {
+router.get('/list', async(req, res) => {
     await Roles.findAll()
     //   res.json(roles)
     .then(roles => res.status(200).render('roles', {roles}))
