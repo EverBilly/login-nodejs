@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-
 const { Roles } = require('../../database/db');
 
+     
 // Listar Todos los Roles
 router.get('/', async(req, res) => {
     await Roles.findAll()
     //   res.json(roles)
-    .then(roles => res.status(200).send(roles))
+    .then(roles => res.status(200).render('roles', {roles}))
 })
 
 // Listar Roles por ID
