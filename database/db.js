@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 
 //Models
 const RolesModel = require('../api/models/Roles');
+const UsersModel = require('../api/models/Users');
 
 dotenv.config({ path: '.env' });
 
@@ -21,7 +22,9 @@ sequelize.sync({ force: false })
 
 // Instancia
 const Roles = RolesModel(sequelize, Sequelize)
+const Users = UsersModel(sequelize, Sequelize)
 
 module.exports = {
+    Users,
     Roles
 };
