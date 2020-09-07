@@ -39,12 +39,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Variables Globales
 app.use((req, res, next) => {
-    app.locals.message = req.flash('message');
-    app.locals.success = req.flash('success');
-    app.locals.user = req.user;
+    res.locals.message = req.flash('message');
+    res.locals.success = req.flash('success');
+    res.locals.user = req.user || null;
     next();
 })
-
+  
 //Conexion del Servidor
 app.listen(app.get('port'), () => {
     console.log('Connected in: ', app.get('port'));
