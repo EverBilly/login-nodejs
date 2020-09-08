@@ -20,10 +20,10 @@ router.get('/:id', async(req, res) => {
 })
 
 // Crear Roles
-router.post('/', async(req, res) => {
+router.post('/add', async(req, res) => {
     await Roles.create(req.body)
     // res.json({ mensaje: 'Rol Creado' })
-    .then(roles => res.status(201).send(roles))
+    .then(roles => res.status(201).render('profile',{roles}))
 })
 
 // Actualizar Roles
