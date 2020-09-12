@@ -1,0 +1,24 @@
+//Async await
+const pokemones = async() => {
+  try {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon/')
+    const data = await res.json()
+    console.log(data.results)
+  } catch (error) {
+      console.log(error)
+  }
+}
+pokemones()
+
+//map
+const tpokemones = async() => {
+  try {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon/')
+    const data = await res.json()
+    const todosP = data.results.map(pokes => pokes.name)
+    console.log(todosP)
+  } catch (error) {
+      console.log(error)
+  }
+}
+tpokemones()
